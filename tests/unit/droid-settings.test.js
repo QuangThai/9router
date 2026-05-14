@@ -6,7 +6,7 @@ vi.mock("next/server", () => ({
   },
 }));
 
-const { is9RouterConfig } = await import("../../src/app/api/cli-tools/droid-settings/route.js");
+const { is9RouterConfig } = await import("../../src/app/api/cli-tools/droid-settings/utils.js");
 
 describe("Droid settings ownership", () => {
   it("does not treat base URL equality alone as 9Router ownership", () => {

@@ -6,6 +6,7 @@ import { promisify } from "util";
 import fs from "fs/promises";
 import path from "path";
 import os from "os";
+import { is9RouterConfig } from "./utils";
 
 const execAsync = promisify(exec);
 
@@ -42,13 +43,6 @@ const readSettings = async () => {
     if (error.code === "ENOENT") return null;
     throw error;
   }
-};
-
-// Check if settings has 9Router customModels
-export const is9RouterConfig = (m, baseUrl = null) => {
-  if (!m) return false;
-  if (m.id?.startsWith("custom:9Router")) return true;
-  return m.apiKey === "sk_9router" && typeof m.baseUrl === "string" && m.baseUrl.includes("/v1");
 };
 
 const has9RouterConfig = (settings) => {
